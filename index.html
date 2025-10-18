@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Proposta de Locação - M A VIANA</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Aplicativo para criação e gerenciamento de propostas de locação de equipamentos da M A VIANA">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Proposta Viana">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#2c3e50">
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167x167.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <img src="icons/logo.png" alt="Logo M A VIANA" style="height:38px;vertical-align:middle;margin-bottom:4px;">
+            <h1 style="display:inline-block;margin-left:10px;vertical-align:middle;"><i class="fas fa-file-contract"></i> Proposta de Locação</h1>
+            <p>M A VIANA LOCAÇÕES E SERVIÇOS - ME</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="app-nav">
+            <button class="nav-btn active" onclick="showSection('form')">
+                <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="nav-btn" onclick="showSection('preview')">
+                <i class="fas fa-eye"></i> Visualizar
+            </button>
+            <button class="nav-btn" onclick="generatePDF()">
+                <i class="fas fa-file-pdf"></i> Gerar PDF
+            </button>
+            <button class="nav-btn" onclick="showWhatsAppOptions()">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </button>
+            <button class="nav-btn" onclick="showReportColumnsConfig()">
+                <i class="fas fa-cog"></i> Configurar Colunas
+            </button>
+        </nav>
+
+        <!-- Form Section -->
+        <section id="form-section" class="app-section active">
+            <div class="form-container">
+                <h2>Dados da Proposta</h2>
+                
+                <!-- Company Info -->
+                <div class="form-group">
+                    <h3>Dados da Empresa</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Empresa:</label>
+                            <input type="text" id="empresa" value="M A VIANA LOCAÇÕES E SERVIÇOS - ME" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label>CNPJ:</label>
+                            <input type="text" id="cnpj" value="14.251.441/0001-15" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Contato:</label>
+                            <input type="text" id="contato" value="(11) 97103-7390" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label>E-mail:</label>
+                            <input type="email" id="email" value="vianamarcelo7@gmail.com" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Endereço:</label>
+                            <input type="text" id="endereco" value="R. Desembergador Aureo Cerqueira Leite, 36" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label>Bairro:</label>
+                            <input type="text" id="bairro" value="Cidade Kemel" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Info -->
+                <div class="form-group">
+                    <h3>Dados do Cliente</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Empresa:</label>
+                            <input type="text" id="cliente-empresa" placeholder="Nome da empresa">
+                        </div>
+                        <div class="form-field">
+                            <label>CNPJ:</label>
+                            <input type="text" id="cliente-cnpj" placeholder="CNPJ">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Contato:</label>
+                            <input type="text" id="cliente-contato" placeholder="Telefone">
+                        </div>
+                        <div class="form-field">
+                            <label>E-mail:</label>
+                            <input type="email" id="cliente-email" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Endereço:</label>
+                            <input type="text" id="cliente-endereco" placeholder="Endereço">
+                        </div>
+                        <div class="form-field">
+                            <label>Bairro:</label>
+                            <input type="text" id="cliente-bairro" placeholder="Bairro">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field full-width">
+                            <label>Local da Obra:</label>
+                            <input type="text" id="local-obra" placeholder="Local da obra">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proposal Details -->
+                <div class="form-group">
+                    <h3>Detalhes da Proposta</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Proposta Nº:</label>
+                            <input type="text" id="proposta-num" placeholder="Número">
+                        </div>
+                        <div class="form-field">
+                            <label>Data:</label>
+                            <input type="date" id="proposta-data">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Validade:</label>
+                            <input type="text" id="validade" value="7 dias após emissão" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Items -->
+                <div class="form-group">
+                    <h3>Itens da Proposta</h3>
+                    <div id="equipment-items">
+                        <!-- Equipment items will be added here -->
+                    </div>
+                    <button type="button" class="btn-add" onclick="showEquipmentSelector()">
+                        <i class="fas fa-plus"></i> Selecionar Equipamentos
+                    </button>
+                </div>
+
+                <!-- Payment Info -->
+                <div class="form-group">
+                    <h3>Informações de Pagamento</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Forma de Pagamento:</label>
+                            <input type="text" id="pagamento" value="TRANSFERÊNCIA BANCÁRIA" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label>Prazo:</label>
+                            <input type="text" id="prazo" value="A COMBINAR" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working Hours Notice -->
+                <div class="form-group">
+                    <h3>Aviso de Horas Trabalhadas</h3>
+                    <div class="form-row">
+                        <div class="form-field full-width">
+                            <label>Horário de Funcionamento:</label>
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #007AFF; margin-bottom: 10px; text-align: center;">
+                                <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; color: #2c3e50;">Horário de Trabalho:</p>
+                                <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Segunda a Quinta: 07h às 17h</p>
+                                <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Sexta: 07h às 18h com 1 hora de almoço</p>
+                                <p style="margin: 0 0 5px 0; font-size: 12px; color: #666; font-style: italic;">Sábado, Domingo e Feriados NÃO inclusos (dias cobrados como hora extra)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Assinatura:</label>
+                            <input type="text" id="assinatura" placeholder="Nome para assinatura">
+                        </div>
+                        <div class="form-field">
+                            <label>Data:</label>
+                            <input type="date" id="data-assinatura">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-primary" onclick="saveProposal()">
+                        <i class="fas fa-save"></i> Salvar Proposta
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="showSection('preview')">
+                        <i class="fas fa-eye"></i> Visualizar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview-section" class="app-section">
+            <div class="preview-container">
+                <div id="pdf-content" class="proposal-document">
+                    <!-- PDF content will be generated here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Verificar se as bibliotecas foram carregadas corretamente
+        window.addEventListener('load', function() {
+            console.log('Verificando bibliotecas...');
+            
+            if (typeof window.jspdf !== 'undefined') {
+                console.log('✅ jsPDF carregado com sucesso');
+                console.log('Versão jsPDF:', window.jspdf.version || 'N/A');
+            } else {
+                console.error('❌ jsPDF não foi carregado');
+            }
+            
+            if (typeof html2canvas !== 'undefined') {
+                console.log('✅ html2canvas carregado com sucesso');
+                console.log('Versão html2canvas:', html2canvas.version || 'N/A');
+            } else {
+                console.error('❌ html2canvas não foi carregado');
+            }
+            
+            // Verificar orientação do dispositivo
+            console.log('Orientação do dispositivo:', window.screen.orientation ? window.screen.orientation.type : 'N/A');
+            console.log('Dimensões da tela:', window.screen.width + 'x' + window.screen.height);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 
