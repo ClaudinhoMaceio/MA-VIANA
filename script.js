@@ -608,6 +608,7 @@ function renderEquipmentItems() {
                         <option value="Quinzenal" ${item.monthlyValue === 'Quinzenal' ? 'selected' : ''}>Quinzenal</option>
                         <option value="Diário" ${item.monthlyValue === 'Diário' ? 'selected' : ''}>Diário</option>
                         <option value="Semanal" ${item.monthlyValue === 'Semanal' ? 'selected' : ''}>Semanal</option>
+                        <option value="Por Viagem" ${item.monthlyValue === 'Por Viagem' ? 'selected' : ''}>Por Viagem</option>
                     </select>
                 </div>
                 ${item.extraHour ? `
@@ -1181,6 +1182,7 @@ function showAddEquipmentForm() {
                 <option value='Quinzenal'>Quinzenal</option>
                 <option value='Diário'>Diário</option>
                 <option value='Semanal'>Semanal</option>
+                <option value='Por Viagem'>Por Viagem</option>
             </select>
         </div>
         <div class='form-row'>
