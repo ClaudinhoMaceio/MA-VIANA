@@ -155,7 +155,7 @@ const equipmentCatalog = [
         nightHour: '',
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
-        workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 18h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
+        workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
         category: 'Equipamentos Principais'
     }
 ];
@@ -798,7 +798,7 @@ function generatePreview() {
                 <div style="flex: 1; background: #f8f9fa; padding: 8px; border-radius: 4px; border-left: 3px solid #ffc107; text-align: center;">
                     <h3 style="color: #2c3e50; font-size: 10px; font-weight: 600; margin: 0 0 5px 0;">HORÁRIO DE TRABALHO</h3>
                     <p style="margin: 2px 0; font-size: 8px; color: #555; line-height: 1.3;"><strong>Segunda a Quinta:</strong> 07h às 17h</p>
-                    <p style="margin: 2px 0; font-size: 8px; color: #555; line-height: 1.3;"><strong>Sexta:</strong> 07h às 18h com 1 hora de almoço</p>
+                    <p style="margin: 2px 0; font-size: 8px; color: #555; line-height: 1.3;"><strong>Sexta:</strong> 07h às 16h com 1 hora de almoço</p>
                     <p style="margin: 2px 0; font-size: 7px; color: #666; font-style: italic; line-height: 1.2;">Sábado, Domingo e Feriados NÃO inclusos (dias cobrados como hora extra)</p>
                     <div style="display: flex; justify-content: space-between; margin-top: 5px; padding-top: 5px; border-top: 1px solid #e9ecef; font-size: 8px; color: #555;">
                         <span><strong>Assinatura:</strong> ${proposal.assinatura || '_____'}</span>
