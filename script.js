@@ -16,7 +16,7 @@ const equipmentCatalog = [
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
         workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
-        category: 'Equipamentos Principais'
+        category: 'Equipamentos Principais.'
     },
     {
         id: 2,
@@ -30,7 +30,7 @@ const equipmentCatalog = [
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
         workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
-        category: 'Equipamentos Principais'
+        category: 'Equipamentos Principais.'
     },
     {
         id: 3,
@@ -44,7 +44,7 @@ const equipmentCatalog = [
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
         workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
-        category: 'Equipamentos Principais'
+        category: 'Equipamentos Principais.'
     },
     {
         id: 4,
@@ -58,7 +58,7 @@ const equipmentCatalog = [
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
         workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
-        category: 'Equipamentos Principais'
+        category: 'Equipamentos Principais.'
     },
     {
         id: 5,
@@ -128,7 +128,7 @@ const equipmentCatalog = [
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
         workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
-        category: 'Equipamentos Principais'
+        category: 'Equipamentos Principais.'
     },
     {
         id: 10,
@@ -156,7 +156,21 @@ const equipmentCatalog = [
         insurance: 'SIM',
         observations: 'COMBUSTÍVEL NÃO INCLUSO, EPI INCLUSO',
         workingHours: 'Segunda a Quinta: 07h às 17h; Sexta: 07h às 16h (com 1h de almoço). Sábados/Domingos/Feriados NÃO inclusos (dias cobrados como hora extra).',
-        category: 'Equipamentos Principais'
+        category: 'Equipamentos Principais.'
+    },
+    {
+        id: 12,
+        type: 'CLAMSHELL ROTATOR HIDRAULICO',
+        description: 'CLAMSHELL ROTATOR HIDRAULICO',
+        unit: 1,
+        monthlyValue: 'Mensal',
+        value: 'R$ 0,00',
+        extraHour: '',
+        nightHour: '',
+        insurance: '',
+        observations: '',
+        workingHours: '',
+        category: 'Acessórios'
     }
 ];
 
